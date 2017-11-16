@@ -59,6 +59,15 @@ local function createModel(opt)
       end
       return nChannels
    end
+   
+   local function addDenseBlockmy(model, nChannels, opt, N,w,h)
+      for i = 1, w do 
+         nChannels = addDenseBlock(model, nChannels, opt, N)
+         nChannels = nChannels + opt.growthRate
+      end
+      return nChannels
+   end
+
 
 
    -- Build DenseNet
